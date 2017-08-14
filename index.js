@@ -8,8 +8,8 @@ const setImmediate = (1, eval)('this').setImmediate
 * Effectively a PassThrough stream that taps to chunks flow
 * and accumulating the hash
 */
-function HashThrough (opts, createHash) {
-  const hashThrough = new Transform(opts)
+function HashThrough (createHash) {
+  const hashThrough = new Transform()
 
   const hash = createHash()
 

@@ -13,7 +13,7 @@ const createHash = require('./sha256')
 const HashThrough = require('../')
 // or `= require('hash-through')`, if it is already installed as npm
 
-const hashThrough = HashThrough({}, createHash)
+const hashThrough = HashThrough(createHash)
 
 // now we can pipe through it to some other destination
 const fs = require('fs')

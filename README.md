@@ -17,22 +17,26 @@ npm install hash-through
 ```
 // let's choose the specific implementation of createHash
 // that we are going to use:
+
 const crypto = require('crypto')
 function myCreateHash(){
   return crypto.createHash('sha256')
 }
 
 // now create a PassThrough stream with that
-const HashThrough = require('hash-through')
-const hashThrough = HashThrough({}, myCreateHash)
 
-// now we can pipe though and have the digest
+const HashThrough = require('hash-through')
+const hashThrough = HashThrough(myCreateHash)
+
+// now we can pipe through
+
 const fs = require('fs')
 const src = fs.createReadStream(__filename)
 
 src.pipe(hashThrough).pipe(process.stdout)
 
-// get the digest that streaming is over
+// ...and get the digest when the streaming is over
+
 hashThrough.on('finish', ()=>{
   console.log(hashThrough.digest('hex'))
 })
