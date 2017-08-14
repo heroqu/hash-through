@@ -1,0 +1,27 @@
+{
+  "name": "hash-through",
+  "version": "0.1.0",
+  "description": "a PassThrough stream that taps to chunks flow and calculates the digest on the fly",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": { },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heroqu/hash-through.git"
+  },
+  "keywords": [
+    "hash",
+    "stream",
+    "passthrough",
+    "tap",
+    "digest"
+  ],
+  "author": "Heroqu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/heroqu/hash-through/issues"
+  },
+  "homepage": "https://github.com/heroqu/hash-through#readme"
+}
