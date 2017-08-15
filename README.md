@@ -45,4 +45,4 @@ Basically, ```createHash``` should be a function that returns a ```hash``` objec
 
 ## More examples
 
-The ```tests``` directory contains some more examples of using different hash functions, including both cryptographic functions from [node crypto module](https://nodejs.org/api/crypto.html#crypto_class_hash) as well as non-cryptographic [murmur3 hash function](https://www.npmjs.com/package/murmurhash-native).
+The ```tests``` directory contains some more examples of using different hash functions, including both cryptographic functions from [node crypto module](https://nodejs.org/api/crypto.html#crypto_class_hash) as well as non-cryptographic [MurmurHash3 function](https://www.npmjs.com/package/murmurhash-native).
