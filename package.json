@@ -6,7 +6,9 @@
   "directories": {
     "example": "examples"
   },
-  "scripts": { },
+  "scripts": {
+    "test": "mocha tests/test.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/heroqu/hash-through.git"
@@ -23,5 +25,10 @@
   "bugs": {
     "url": "https://github.com/heroqu/hash-through/issues"
   },
-  "homepage": "https://github.com/heroqu/hash-through#readme"
+  "homepage": "https://github.com/heroqu/hash-through#readme",
+  "devDependencies": {
+    "chai": "^4.1.1",
+    "mocha": "^3.5.0",
+    "murmurhash-native": "^3.2.1"
+  }
 }
