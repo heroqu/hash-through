@@ -36,7 +36,7 @@ const src = fs.createReadStream(__filename)
 
 src.pipe(hash).pipe(process.stdout)
 
-hashThrough.on('finish', ()=>{
+hash.on('finish', ()=>{
   console.log(hash.digest('hex'))
 })
 ```
