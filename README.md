@@ -28,7 +28,7 @@ function myCreateHash(){
 const HashThrough = require('hash-through')
 const hash = HashThrough(myCreateHash)
 ```
-Now we can pipe through and get the digest when the streaming is over:
+Now we can pipe through and get the digest ready by the very time when the streaming is over:
 
 ```javascript
 const fs = require('fs')
@@ -46,3 +46,7 @@ Basically, ```createHash``` should be a function that returns a ```hash``` objec
 ## More examples
 
 The ```tests``` directory contains some more examples of using different hash functions, including both cryptographic functions from [node crypto module](https://nodejs.org/api/crypto.html#crypto_class_hash) as well as non-cryptographic [MurmurHash3 function](https://www.npmjs.com/package/murmurhash-native).
+
+## The idea
+
+The point of this module is that original stream can really pass through the hashing instance 'untouched', so it is really a PassThrough stream from external point of view. One can insert one or more instances of it at any points of piping sequences without violating the existing streaming at all. Kind of like tapping to the wire or playing man-in-the-middle.
