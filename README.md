@@ -26,7 +26,7 @@ function myCreateHash(){
 }
 
 const HashThrough = require('hash-through')
-const hash = HashThrough(myCreateHash)
+const ht = HashThrough(myCreateHash)
 ```
 Now we can pipe through and get the digest ready by the very time the streaming is over:
 
@@ -34,10 +34,10 @@ Now we can pipe through and get the digest ready by the very time the streaming 
 const fs = require('fs')
 const src = fs.createReadStream(__filename)
 
-src.pipe(hash).pipe(process.stdout)
+src.pipe(ht).pipe(process.stdout)
 
-hash.on('finish', ()=>{
-  console.log(hash.digest('hex'))
+ht.on('finish', ()=>{
+  console.log(ht.digest('hex'))
 })
 ```
 
