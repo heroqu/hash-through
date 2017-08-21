@@ -1,6 +1,6 @@
 {
   "name": "hash-through",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "a PassThrough stream that taps to chunks flow and calculates the digest on the fly",
   "main": "index.js",
   "scripts": {
