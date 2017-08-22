@@ -16,7 +16,7 @@ None.
 
 ## Usage
 
-A short example using ```createHash``` from node's ```crypto``` module:
+A short example using [createHash](https://nodejs.org/api/crypto.html#crypto_crypto_createhash_algorithm) from node's crypto module:
 
 ```javascript
 const HashThrough = require('hash-through')
@@ -46,7 +46,7 @@ Basically, ```createHash``` should be a function with no args that returns a ```
 
 ## More examples
 
-The [tests directory](https://github.com/heroqu/hash-through/tree/master/tests) contains some more examples of using different hash functions, including both cryptographic functions from [node crypto module](https://nodejs.org/api/crypto.html#crypto_class_hash) as well as non-cryptographic [MurmurHash3 function](https://www.npmjs.com/package/murmurhash-native).
+The [test directory](https://github.com/heroqu/hash-through/tree/master/test) contains some more examples of using different hash functions, including both cryptographic functions from [node crypto module](https://nodejs.org/api/crypto.html#crypto_class_hash) as well as non-cryptographic [MurmurHash3 function](https://www.npmjs.com/package/murmurhash-native).
 
 ## The idea
 
