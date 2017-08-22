@@ -19,18 +19,19 @@ None.
 A short example using ```createHash``` from node's ```crypto``` module:
 
 ```javascript
+const HashThrough = require('hash-through')
 const crypto = require('crypto')
 
-function myCreateHash(){
+function createHash(){
+  // here we are wrapping a particular implementation
   return crypto.createHash('sha256')
 }
 
-const HashThrough = require('hash-through')
-const ht = HashThrough(myCreateHash)
-```
-Now we can pipe through and get the digest ready by the very time the streaming is over:
+const ht = HashThrough(createHash)
 
-```javascript
+// Now we can pipe through and get the digest ready
+// by the very time the streaming is over:
+
 const fs = require('fs')
 const src = fs.createReadStream(__filename)
 
@@ -41,7 +42,7 @@ ht.on('finish', ()=>{
 })
 ```
 
-Basically, ```createHash``` should be a function that returns a ```hash``` object, which in turn should have two methods: ```hash.update(chunk)``` and ```hash.digest(format)``` with the same meaning as in [crypto module](https://nodejs.org/api/crypto.html#crypto_class_hash)
+Basically, ```createHash``` should be a function with no args that returns a ```hash``` object, which in turn should have two methods: ```hash.update(chunk)``` and ```hash.digest(format)``` with the same meaning as in [crypto module](https://nodejs.org/api/crypto.html#crypto_class_hash)
 
 ## More examples
 
