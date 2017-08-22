@@ -4,7 +4,7 @@
   "description": "a PassThrough stream that taps to chunks flow and calculates the digest on the fly",
   "main": "index.js",
   "scripts": {
-    "test": "mocha tests/test.js"
+    "test": "mocha test/tests.js"
   },
   "repository": {
     "type": "git",
