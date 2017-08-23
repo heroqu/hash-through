@@ -500,7 +500,7 @@ murmurhash-native@^3.2.1:
     nan "^2.6.2"
     node-pre-gyp "^0.6.34"
 
-nan@^2.6.2:
+nan@^2.4.0, nan@^2.6.2:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.6.2.tgz#e4ff34e6c95fdfb5aecc08de6596f43605a7db45"
 
@@ -789,3 +789,9 @@ wide-align@^1.1.0:
 wrappy@1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/wrappy/-/wrappy-1.0.2.tgz#b5243d8f3ec1aa35f1364605bc0d1036e30ab69f"
+
+xxhash@^0.2.4:
+  version "0.2.4"
+  resolved "https://registry.yarnpkg.com/xxhash/-/xxhash-0.2.4.tgz#8b8a48162cfccc21b920fa500261187d40216c39"
+  dependencies:
+    nan "^2.4.0"

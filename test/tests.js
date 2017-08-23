@@ -82,6 +82,19 @@ describe('HashThrough', function () {
     assert.equal(digest, expected, 'murmurHash3 128_64_le digest of a sample data stream')
   })
 
+  it('Should work with xxHash hash function', async function () {
+    const createHash = require('./hashes/xxhash64')
+    const expected = '72f98ab7c9d44a85'
+    const hashThrough = HashThrough(createHash)
+
+    src.pipe(hashThrough).pipe(devnul)
+
+    await eventPromise(hashThrough, 'finish')
+
+    const digest = hashThrough.digest('hex')
+    assert.equal(digest, expected, 'xxhash64 digest of a sample data stream')
+  })
+
   it('Should handle error in hash.update', async function () {
     const createHash = require('./hashes/erroneous')
 
