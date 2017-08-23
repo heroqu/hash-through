@@ -8,11 +8,11 @@ const {inspect} = require('util')
 
 describe('HashThrough', function () {
   let src
-  let devnul
+  let devnull
 
   beforeEach(function () {
     src = fs.createReadStream(path.resolve(__dirname, 'sample.txt'))
-    devnul = DevNull()
+    devnull = DevNull()
   })
 
   it('Should work with crypto sha256 hash function', async function () {
@@ -21,7 +21,7 @@ describe('HashThrough', function () {
 
     const hashThrough = HashThrough(createHash)
 
-    src.pipe(hashThrough).pipe(devnul)
+    src.pipe(hashThrough).pipe(devnull)
 
     await eventPromise(hashThrough, 'finish')
 
@@ -35,7 +35,7 @@ describe('HashThrough', function () {
 
     const hashThrough = HashThrough(createHash)
 
-    src.pipe(hashThrough).pipe(devnul)
+    src.pipe(hashThrough).pipe(devnull)
 
     await eventPromise(hashThrough, 'finish')
 
@@ -48,7 +48,7 @@ describe('HashThrough', function () {
     const expected = '4fff5196ef6058c0af1ef4a2b82b75ea3afc3e1b'
     const hashThrough = HashThrough(createHash)
 
-    src.pipe(hashThrough).pipe(devnul)
+    src.pipe(hashThrough).pipe(devnull)
 
     await eventPromise(hashThrough, 'finish')
 
@@ -61,7 +61,7 @@ describe('HashThrough', function () {
     const expected = 'f8b54461d79f651a9c64c617ebd15985'
     const hashThrough = HashThrough(createHash)
 
-    src.pipe(hashThrough).pipe(devnul)
+    src.pipe(hashThrough).pipe(devnull)
 
     await eventPromise(hashThrough, 'finish')
 
@@ -74,7 +74,7 @@ describe('HashThrough', function () {
     const expected = '2eef21fa9d8fb68e6839c1b2fc92eac0'
     const hashThrough = HashThrough(createHash)
 
-    src.pipe(hashThrough).pipe(devnul)
+    src.pipe(hashThrough).pipe(devnull)
 
     await eventPromise(hashThrough, 'finish')
 
@@ -82,12 +82,12 @@ describe('HashThrough', function () {
     assert.equal(digest, expected, 'murmurHash3 128_64_le digest of a sample data stream')
   })
 
-  it('Should work with xxHash hash function', async function () {
+  it('Should work with xxHash64 hash function', async function () {
     const createHash = require('./hashes/xxhash64')
     const expected = '72f98ab7c9d44a85'
     const hashThrough = HashThrough(createHash)
 
-    src.pipe(hashThrough).pipe(devnul)
+    src.pipe(hashThrough).pipe(devnull)
 
     await eventPromise(hashThrough, 'finish')
 
@@ -95,12 +95,25 @@ describe('HashThrough', function () {
     assert.equal(digest, expected, 'xxhash64 digest of a sample data stream')
   })
 
+  it('Should work with MetroHash128 hash function', async function () {
+    const createHash = require('./hashes/metrohash')
+    const expected = 'ba089843d132af3231990d405f2ac3c0'
+    const hashThrough = HashThrough(createHash)
+
+    src.pipe(hashThrough).pipe(devnull)
+
+    await eventPromise(hashThrough, 'finish')
+
+    const digest = hashThrough.digest('hex')
+    assert.equal(digest, expected, 'MetroHash128 digest of a sample data stream')
+  })
+
   it('Should handle error in hash.update', async function () {
     const createHash = require('./hashes/erroneous')
 
     const hashThrough = HashThrough(createHash)
 
-    src.pipe(hashThrough).pipe(devnul)
+    src.pipe(hashThrough).pipe(devnull)
 
     let err = await eventPromise(hashThrough, 'error')
 

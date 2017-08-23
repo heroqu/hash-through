@@ -46,7 +46,17 @@ Basically, ```createHash``` should be a function with no args that returns a ```
 
 ## More examples
 
-The [test directory](https://github.com/heroqu/hash-through/tree/master/test) contains some more examples of using different hash functions, including both cryptographic functions from [node crypto module](https://nodejs.org/api/crypto.html#crypto_class_hash) as well as non-cryptographic [MurmurHash3 function](https://www.npmjs.com/package/murmurhash-native) and [xxHash](https://github.com/mscdex/node-xxhash).
+The [test directory](https://github.com/heroqu/hash-through/tree/master/test) contains some more examples of how to plug in different hash algorithms, including both cryptographic functions from [node crypto module](https://nodejs.org/api/crypto.html#crypto_class_hash):
+
+- sha256
+- sha512
+- ripemd160
+
+as well as some non-cryptographic ones:
+
+- [MurmurHash3](https://www.npmjs.com/package/murmurhash-native)
+- [xxHash](https://github.com/mscdex/node-xxhash)
+- [MetroHash](https://www.npmjs.com/package/metrohash)
 
 ## The idea
 
