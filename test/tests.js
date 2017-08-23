@@ -4,6 +4,8 @@ const path = require('path')
 const HashThrough = require('../')
 const DevNull = require('./devnull')
 
+const {inspect} = require('util')
+
 describe('HashThrough', function () {
   let src
   let devnul
@@ -78,6 +80,20 @@ describe('HashThrough', function () {
 
     const digest = hashThrough.digest('hex')
     assert.equal(digest, expected, 'murmurHash3 128_64_le digest of a sample data stream')
+  })
+
+  it('Should handle error in hash.update', async function () {
+    const createHash = require('./hashes/erroneous')
+
+    const hashThrough = HashThrough(createHash)
+
+    src.pipe(hashThrough).pipe(devnul)
+
+    let err = await eventPromise(hashThrough, 'error')
+
+    assert.isDefined(err, 'hash.update error detection')
+    assert.isTrue(Array.isArray(err))
+    assert.equal(err[0].message, 'hash function update call error')
   })
 })
 

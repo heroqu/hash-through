@@ -15,8 +15,12 @@ function HashThrough (createHash) {
 
   hashThrough._transform = function (chunk, encoding, cb) {
     setImmediate(_ => {
-      hash.update(chunk)
-      cb(null, chunk)
+      try {
+        hash.update(chunk)
+        cb(null, chunk)
+      } catch (err) {
+        cb(err)
+      }
     })
   }
 
