@@ -60,4 +60,4 @@ as well as some non-cryptographic ones:
 
 ## The idea
 
-The point of this module is that original stream can really pass through the hashing instance 'untouched', so it is really a PassThrough stream from external point of view. One can insert one or more instances of it at any points of piping chains without violating the existing streaming logics. Kind of like tapping to the wire or playing man-in-the-middle.
+The point of this module is that original stream can really pass through the hashing instance 'untouched', so it really is a *PassThrough stream* from external point of view. One can insert one or more instances of it at any points of piping chains without violating the existing streaming logics. Kind of like tapping to the wire or playing man-in-the-middle.

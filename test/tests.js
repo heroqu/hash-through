@@ -4,8 +4,6 @@ const path = require('path')
 const HashThrough = require('../')
 const DevNull = require('./devnull')
 
-const {inspect} = require('util')
-
 describe('HashThrough', function () {
   let src
   let devnull

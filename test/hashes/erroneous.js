@@ -1,5 +1,3 @@
-const crypto = require('crypto')
-
 // let's make a createHash implementation that
 // returns a hash object producing an error when
 // update is called
