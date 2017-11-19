@@ -10,9 +10,7 @@ The hashing function has to be supplied. It should be in a form similar to ```cr
 npm install hash-through
 ```
 
-## Dependencies
 
-None.
 
 ## Usage
 
@@ -57,6 +55,10 @@ as well as some non-cryptographic ones:
 - [MurmurHash3](https://www.npmjs.com/package/murmurhash-native)
 - [xxHash](https://github.com/mscdex/node-xxhash)
 - [MetroHash](https://www.npmjs.com/package/metrohash)
+
+## Dependencies
+
+For *"a stable streams base, regardless of what version of Node you are using"* we use [readable-stream](https://www.npmjs.com/package/readable-stream) standalone stream module instead of Node core implementation (read elaboration on this [here](https://r.va.gg/2014/06/why-i-dont-use-nodes-core-stream-module.html)).
 
 ## The idea
 

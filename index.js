@@ -1,6 +1,6 @@
 'use strict'
 
-const { Transform } = require('stream')
+const { Transform } = require('readable-stream')
 const setImmediate = (1, eval)('this').setImmediate
   || function (fn) { setTimeout(fn, 0) }
 
